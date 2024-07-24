@@ -1,22 +1,23 @@
-
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: ultimate-deployment
-  namespace: jeevan
+  name: my-app
+  labels:
+    app: my-app
 spec:
-  replicas: 2 # You can adjust the number of replicas as needed
+  replicas: 2
   selector:
     matchLabels:
-      app: ultimate
+      app: my-app
   template:
     metadata:
       labels:
-        app: ultimate
+        app: my-app
     spec:
       containers:
-        - name: ultimate
-          image: jeevanclk/ultimate:latest # Replace with the actual image tag
-          ports:
-            - containerPort: 80 # Replace with the port your Tetris game listens on
-
+      - name: my-app-container
+        image: jeevanclk/ultimate:latest
+        ports:
+        - containerPort: 80
+      imagePullSecrets:
+      - name: my-dockerhub-secret
