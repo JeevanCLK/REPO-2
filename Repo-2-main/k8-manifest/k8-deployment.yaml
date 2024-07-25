@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: product
+  name: ultimate
   labels:
-    app: product
+    app: ultimate
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: product
+      app: ultimate
   template:
     metadata:
       labels:
-        app: product
+        app: ultimate
     spec:
       containers:
-      - name: product-container
+      - name: ultimate-container
         image: jeevanclk/ultimate:latest
         ports:
         - containerPort: 80
